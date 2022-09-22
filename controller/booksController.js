@@ -22,38 +22,37 @@ const BOOKS_CONTROLLER = {
     );
   },
   createBook: (req, res, next) => {
-    const values = [
-      (name = req.body.name),
-      (author = req.body.author),
-      (description = req.body.description),
-      (price = req.body.price),
-      (image = req.body.image),
-      (status = req.body.status)
-    ];
-    connection.query(
-      'INSERT INTO books (`name`,`author`,`description`,`price`,`image`,`status`) VALUES (?)',
-      [values],
-      (err, data) => {
-        if (err)
-          return next(createError(500, 'Error creating book in database.'));
-        return res.status(200).json({
-          success: true,
-          message: 'Book created successfully'
-        });
-      }
-    );
+    const values = {
+      name: req.body.name,
+      name: req.body.name,
+      author: req.body.author,
+      description: req.body.description,
+      price: req.body.price,
+      image: req.body.image,
+      status: req.body.status || 'N'
+    };
+
+    connection.query('INSERT INTO books SET ?', [values], (err, data) => {
+      if (err)
+        return next(createError(500, 'Error creating book in database.'));
+      return res.status(201).json({
+        success: true,
+        message: 'Book created successfully'
+      });
+    });
   },
 
   updateBook: (req, res, next) => {
     const bookId = req.params.id;
-    const values = [
-      (name = req.body.name),
-      (author = req.body.author),
-      (description = req.body.description),
-      (price = req.body.price),
-      (image = req.body.image),
-      (status = req.body.status)
-    ];
+    const values = {
+      name: req.body.name,
+      name: req.body.name,
+      author: req.body.author,
+      description: req.body.description,
+      price: req.body.price,
+      image: req.body.image,
+      status: req.body.status || 'N'
+    };
 
     connection.query(
       'UPDATE books SET ? WHERE id = ?',
