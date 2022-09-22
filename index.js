@@ -3,10 +3,14 @@ import dotenv from 'dotenv';
 import connection from './config.js';
 import BooksRouter from './router/booksRouter.js';
 import { availableEndpoints } from './utils.js';
+import cors from 'cors';
 
 /* define initialize */
 const app = express();
 dotenv.config();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 
 /* Database connection */
 connection.connect(err => {
