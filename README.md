@@ -1,7 +1,4 @@
-# react-express-mysql-crud-app
-This project is the MERN Full Stack application that I developed using Node Js, MySQL, Express Js, Create React App.
-
-## Fimple React Practicum
+## react-express-mysql-crud-app
 
 Bu proje [Create React App](https://github.com/facebook/create-react-app), Express.js ve MySQL kullanalarak geliştirilmiş CRUD uygulamasıdır. 
 
